@@ -1,0 +1,18 @@
+/* Использование break в цикле for */
+
+#include <stdio.h>
+
+int main(void) {
+   unsigned int x;
+
+   for ( x = 1; x <= 10; x++ ) {
+      if ( x == 5 ) {
+         break;
+      }
+      
+      printf( "%d\n", x );
+   }
+   
+   printf( "Broke out of loop at x = %d\n", x );
+   return 0;
+}
