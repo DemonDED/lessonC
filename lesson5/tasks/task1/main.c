@@ -8,15 +8,22 @@ int main(void) {
 	char text_array[9][10] = {"$201-$299", "$300-$399", "$400-$499", "$500-$599", "$600-$699", "$700-$799", "$800-$899", "$900-$999", "$1000-..."};
 	int payment;	
 	
-	printf("%s", "Введите сумму заработка сотрудника (для завершения введите -1): ");
-	scanf("%d", &payment);
-	calc_by_gross_sales(counter_array, payment);
-
-	while (payment != -1) {	
+	while (1) {
 		printf("%s", "Введите сумму заработка сотрудника (для завершения введите -1): ");
-		scanf("%d", &payment);
-		if (payment != -1) {
+
+		if(scanf("%d", &payment) == 1) {
+
+			if (payment == -1) {
+				break;
+			}
+
 			calc_by_gross_sales(counter_array, payment);
+
+		} else {
+
+			puts("Error! Incorrect data!");
+			// Очистка буфера ввода
+			while(getchar() == '\n'); //?
 		}
 	}
 	
