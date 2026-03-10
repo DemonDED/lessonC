@@ -1,0 +1,47 @@
+// Пузырьковая сортировка через указатели
+
+#include<stdio.h>
+#define SIZE 10
+
+void bubbleSort(int* const array, const int size);
+
+int main() {
+	int a[SIZE] = {2, 6, 4, 8, 10, 12, 89, 68, 45, 37};
+	int i; //counter
+
+	puts("Data items in original order:");
+	for (i = 0; i < SIZE; i++) {
+		printf("%4d", a[i]);
+	}
+
+	bubbleSort(a, SIZE);
+	puts("\nData items in ascending order");
+
+	for (i = 0; i < SIZE; i++) {
+		printf("%4d", a[i]);
+	}
+	puts("");
+
+	return 0;
+}
+
+void bubbleSort(int* const array, const int size) {
+	void swap(int *element1Ptr, int *element2Ptr);// Прототип здесь, т.к. функция больше нигде не используется
+	int pass;
+	int j;
+
+	for (pass = 0; pass < size - 1; pass++) {
+		for (j = 0; j < size - 1; j++) {
+			if (array[j] < array[j + 1]) {
+				swap(&array[j], &array[j + 1]);
+			}
+		}
+	}
+
+}
+
+void swap(int *element1Ptr, int *element2Ptr) {
+	int hold = *element1Ptr;
+	*element1Ptr = *element2Ptr;
+	*element2Ptr = hold;
+}
