@@ -18,14 +18,14 @@ int main() {
 
 	 puts("\nData in items on original order");
 	 for (counter = 0; counter < SIZE; counter++) {
-		printf("a[%d] = %d\n", coutner, a[counter]);
+		printf("a[%d] = %d\n", counter, a[counter]);
 	 }
 
 	if (order == 1) {
 		bubble(a, SIZE, ascending);
 		puts("\nData in items on sorted order");
 	} else if (order == 2) {
-		bubble(a, SIZE descending);
+		bubble(a, SIZE, descending);
 		puts("\nData in itmes on sorted order");
 	}
 
@@ -36,7 +36,7 @@ int main() {
 	return 0;
 }
 
-void bubble(int work[], const int size, in (*compare) (int a, int b)) {
+void bubble(int work[], const int size, int (*compare) (int a, int b)) {
 	int pass;
 	int count;
 
