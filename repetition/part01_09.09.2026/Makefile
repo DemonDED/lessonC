@@ -5,8 +5,9 @@ MATH_FLAGS=-lm $(CFLAGS)
 MATH_DEB_FLAGS=-g -lm $(CFLAGS)
 
 TARGET=build/main.bin
+SRCS := $(shell find src/ -name "*.c")
 
-SRCS=$(wildcard src/*.c)
+#SRCS=$(wildcard src/*.c)
 OBJS=$(patsubst src/%.c, build/%.o, $(SRCS))
 
 all: $(TARGET)
@@ -25,5 +26,8 @@ clean:
 
 debbug: $(OBJS) | build
 	$(CC) $(DEB_FLAGS) $^ -o build/main.deb
+
+test:
+	@echo "$(TEST_SRCS)"
 
 .PHONY: all clean

@@ -2,5 +2,5 @@
 #include <stdio.h>
 
 void hello() {
-	printf("%s", "Hello ");
+	printf("%s", "Hello \n");
 }
